@@ -70,4 +70,3 @@ func TestGetAPIKey_MissingToken(t *testing.T) {
 		t.Fatalf("expected 'malformed authorization header' error, got %v", err)
 	}
 }
-
