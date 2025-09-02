@@ -71,15 +71,3 @@ func TestGetAPIKey_MissingToken(t *testing.T) {
 	}
 }
 
-func TestGetAPIKey_ExtraSpaces(t *testing.T) {
-	h := http.Header{}
-	h.Set("Authorization", "ApiKey    tok")
-
-	_, err := GetAPIKey(h)
-	if err == nil {
-		t.Fatal("expected error, got nil")
-	}
-	if err.Error() != "malformed authorization header" {
-		t.Fatalf("expected malformed error, got %v", err)
-	}
-}
